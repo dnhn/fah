@@ -1,0 +1,8 @@
+{
+  "name": "fah",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Folding@home profile",
+  "scripts": {},
+  "author": "Nhan Doan <nhandev88@gmail.com>"
+}
