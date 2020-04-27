@@ -5,6 +5,7 @@
   "description": "Folding@home profile",
   "author": "Nhan Doan <nhandev88@gmail.com>",
   "dependencies": {
+    "fetch-jsonp": "^1.1.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
