@@ -7,6 +7,8 @@ const getMe = _ => fetcher(endpoints.GET_USER_BY_ID(process.env.FAH_USERID));
 
 const getProject = project => fetcher(endpoints.GET_PROJECT(project));
 
+const getTeam = team => fetcher(endpoints.GET_TEAM(team));
+
 const getUserById = id => fetcher(endpoints.GET_USER_BY_ID(id));
 
 const getUserByUsername = username =>
@@ -15,6 +17,7 @@ const getUserByUsername = username =>
 export {
   getMe,
   getProject,
+  getTeam,
   getUserById,
   getUserByUsername,
 };
