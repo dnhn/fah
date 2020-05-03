@@ -1,1 +1,5 @@
-.Project {}
+.Project {
+  &.Card {
+    width: calc(100vw * 2 / 3 - 84px);
+  }
+}
