@@ -20,6 +20,11 @@ export default _ => {
           <li>Rank: <strong>{formatNumber(team.rank)}</strong></li>
           <li>Work Unit completed: <strong>{formatNumber(team.wus)}</strong></li>
         </ul>
+        <img
+          className="Logo"
+          src={team.logo}
+          alt="Team logo"
+        />
       </section>
     </div>
   ) : '';

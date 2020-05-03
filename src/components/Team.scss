@@ -1,1 +1,8 @@
-.Team {}
+.Team {
+  .Logo {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: 100%;
+  }
+}
