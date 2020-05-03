@@ -3,12 +3,17 @@ import { getUserById } from '../common/getter';
 
 import './Me.scss';
 
-export default () => {
+export default ({ setViewProject }) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
     getUserById(17958).then(setUser);
   }, []);
+
+  const viewProject = (e, p) => {
+    e.preventDefault();
+    setViewProject(p);
+  };
 
   return user ? (
     <div className="Me Card">
@@ -29,6 +34,7 @@ export default () => {
                   className="Me__Project"
                   type="button"
                   key={p}
+                  onClick={e => viewProject(e, p)}
                 >
                   {p}
                 </button>
