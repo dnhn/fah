@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getTeam } from '../common/getter';
+import { formatNumber } from '../common/util';
 
 import './Team.scss';
 
@@ -15,9 +16,9 @@ export default () => {
       <h1 className="Card__Heading">Team</h1>
       <section className="Card__Content">
         <ul>
-          <li>Score: <strong>{team.score.toLocaleString('en')}</strong></li>
-          <li>Rank: <strong>{team.rank.toLocaleString('en')}</strong></li>
-          <li>Work Unit completed: <strong>{team.wus.toLocaleString('en')}</strong></li>
+          <li>Score: <strong>{formatNumber(team.score)}</strong></li>
+          <li>Rank: <strong>{formatNumber(team.rank)}</strong></li>
+          <li>Work Unit completed: <strong>{formatNumber(team.wus)}</strong></li>
         </ul>
       </section>
     </div>

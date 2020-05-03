@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getWorkStatus } from '../common/getter';
+import { formatNumber } from '../common/util';
 
 import './Work.scss';
 
@@ -33,7 +34,7 @@ export default ({ setViewProject }) => {
                 <ul>
                   <li>Progress: <strong>{w.percentdone}</strong></li>
                   <li>ETA: <strong>{w.eta}</strong></li>
-                  <li>Estimated points: <strong>{w.creditestimate.toLocaleString('en')}</strong></li>
+                  <li>Estimated points: <strong>{formatNumber(w.creditestimate)}</strong></li>
                 </ul>
               </>
             );

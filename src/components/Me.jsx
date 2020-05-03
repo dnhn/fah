@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getUserById } from '../common/getter';
+import { formatNumber } from '../common/util';
 
 import './Me.scss';
 
@@ -20,13 +21,13 @@ export default ({ setViewProject }) => {
       <h1 className="Card__Heading">Me</h1>
       <section className="Card__Content">
         <ul>
-          <li>Total score: <strong>{user.score.toLocaleString('en')}</strong></li>
-          <li>Rank: <strong>{user.rank.toLocaleString('en')}</strong></li>
-          <li>Work Unit completed: <strong>{user.wus.toLocaleString('en')}</strong></li>
+          <li>Total score: <strong>{formatNumber(user.score)}</strong></li>
+          <li>Rank: <strong>{formatNumber(user.rank)}</strong></li>
+          <li>Work Unit completed: <strong>{formatNumber(user.wus)}</strong></li>
           <li>Last Work Unit: <strong>{new Date(user.last).toDateString()}</strong></li>
         </ul>
         <summary>
-          Projects participated: <strong>{(user.projects.length - 1).toLocaleString('en')}</strong>
+          Projects participated: <strong>{formatNumber(user.projects.length - 1)}</strong>
           <details>
             {user.projects.map((p, i) =>
               i !== 0 ? (
