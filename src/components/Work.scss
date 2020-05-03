@@ -1,0 +1,10 @@
+.Work {
+  .Project__Heading {
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
