@@ -12,9 +12,13 @@ const getUserById = id => fetcher(endpoints.GET_USER_BY_ID(id));
 const getUserByUsername = username =>
   fetcher(endpoints.GET_USER_BY_USERNAME(username));
 
+const getWorkStatus = async _ =>
+  await (await fetch(endpoints.GET_WORK_STATUS)).json();
+
 export {
   getProject,
   getTeam,
   getUserById,
   getUserByUsername,
+  getWorkStatus,
 };
