@@ -1,6 +1,6 @@
 {
   "name": "fah",
-  "version": "0.1.0",
+  "version": "1.2.0",
   "private": true,
   "description": "Folding@home profile",
   "author": "Nhan Doan <nhandev88@gmail.com>",
@@ -11,17 +11,12 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "node-sass": "^4.14.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "preview": "npm run build && netlify deploy"
   },
   "eslintConfig": {
