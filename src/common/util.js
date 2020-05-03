@@ -1,1 +1,1 @@
-export const formatNumber = n => n.toLocaleString('en');
+export const formatNumber = n => parseInt(n).toLocaleString('en');
