@@ -9,8 +9,11 @@ import './App.scss';
 export default _ => {
   const [viewProject, setViewProject] = useState();
 
+  const currentHour = new Date().getHours();
+  const darkTheme = currentHour >= 18 || currentHour < 6 ? 'Dark' : '';
+
   return (
-    <main className="App">
+    <main className={`App ${darkTheme}`}>
       <Me setViewProject={setViewProject} />
       <Work setViewProject={setViewProject} />
       <Team />

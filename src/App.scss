@@ -13,6 +13,11 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: #00f;
+  transition: color .25s;
+
+  .Dark & {
+    color: #ff0;
+  }
 }
 
 .App {
@@ -20,6 +25,13 @@ a {
   align-content: baseline;
   flex-wrap: wrap;
   height: 100vh;
+  transition-property: background-color, color;
+  transition-duration: .5s;
+
+  &.Dark {
+    background-color: black;
+    color: white;
+  }
 }
 
 .Card {
@@ -31,6 +43,7 @@ a {
   padding: 20px;
   overflow: hidden;
   overflow-wrap: break-word;
+  transition: border-color .5s;
 
   ul, ol {
     margin: 0;
@@ -40,6 +53,10 @@ a {
 
   li {
     margin-bottom: 4px;
+  }
+
+  .Dark & {
+    border-color: white;
   }
 
   @media screen and (max-width: 1024px) {
@@ -67,6 +84,14 @@ a {
   background-color: black;
   color: white;
   text-align: right;
+  transition-property: border-color, background-color, color;
+  transition-duration: .5s;
+
+  .Dark & {
+    border-color: black;
+    background-color: white;
+    color: black;
+  }
 }
 
 .Card__Content {
