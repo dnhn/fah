@@ -1,4 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Me from './components/Me';
+import Team from './components/Team';
+
 import './App.scss';
 
-export default () => <div className="App" />;
+export default () => {
+  return (
+    <main className="App">
+      <Me />
+      <Team />
+    </main>
+  );
+};

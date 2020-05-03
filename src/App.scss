@@ -1,1 +1,43 @@
-.App {}
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Card {
+  position: relative;
+  width: calc((100vw / 3) - 84px);
+  height: calc(50vh - 84px);
+  margin: 20px;
+  border: 2px solid black;
+  padding: 20px;
+  overflow: auto;
+  overflow-wrap: break-word;
+
+  ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+}
+
+.Card__Heading {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  text-align: right;
+}
+
+.Card__Content {
+  height: calc(100% - 88px);
+  overflow: auto;
+  overflow-wrap: break-word;
+  padding-top: 88px;
+}
