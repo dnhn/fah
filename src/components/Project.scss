@@ -1,5 +1,21 @@
 .Project {
   &.Card {
     width: calc(100vw * 2 / 3 - 84px);
+
+    @media screen and (max-width: 1024px) {
+      width: calc(50vw - 84px);
+    }
+
+    @media screen and (max-width: 768px) {
+      width: calc(100vw - 84px);
+    }
+
+    @media screen and (max-width: 768px) and (orientation: portrait) {
+      height: calc(50vh - 84px);
+    }
+
+    @media screen and (max-width: 640px) {
+      height: calc(100vh - 84px);
+    }
   }
 }

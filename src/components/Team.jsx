@@ -4,10 +4,10 @@ import { formatNumber } from '../common/util';
 
 import './Team.scss';
 
-export default () => {
+export default _ => {
   const [team, setTeam] = useState();
 
-  useEffect(() => {
+  useEffect(_ => {
     getTeam(261473).then(setTeam);
   }, []);
 

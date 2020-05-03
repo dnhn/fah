@@ -23,4 +23,13 @@
     background-color: white;
     color: black;
   }
+
+  @media screen and (max-width: 768px) {
+    min-width: 10vw;
+    padding: 10px;
+  }
+
+  @media screen and (max-width: 640px) {
+    min-width: 20vw;
+  }
 }

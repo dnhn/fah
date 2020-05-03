@@ -6,7 +6,7 @@ import Project from './components/Project';
 
 import './App.scss';
 
-export default () => {
+export default _ => {
   const [viewProject, setViewProject] = useState();
 
   return (

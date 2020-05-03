@@ -6,10 +6,13 @@ import './Project.scss';
 export default ({ projectId }) => {
   const [project, setProject] = useState();
 
-  useEffect(() => {
+  useEffect(_ => {
     getProject(projectId)
       .then(setProject)
-      .catch(e => setProject(null));
+      .catch(e => setProject(null))
+      .finally(
+        _ => window.scrollTo({ top: document.documentElement.scrollHeight })
+      );
   }, [projectId]);
 
   return project ? (

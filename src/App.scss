@@ -1,15 +1,25 @@
 body {
   font: 16px/1.5 'IBM Plex Mono', monospace;
   color: black;
+
+  @media screen and (max-width: 640px) {
+    font-size: 14px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+a {
+  color: #00f;
+}
+
 .App {
   display: flex;
+  align-content: baseline;
   flex-wrap: wrap;
+  height: 100vh;
 }
 
 .Card {
@@ -30,6 +40,20 @@ h1, h2, h3, h4, h5, h6 {
 
   li {
     margin-bottom: 4px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: calc(50vw - 84px);
+    height: calc(50vh - 84px);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: calc(100vw - 84px);
+    height: calc(50vw - 84px);
+  }
+
+  @media screen and (max-width: 640px) {
+    height: calc(45vh - 84px);
   }
 }
 

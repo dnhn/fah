@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { getWorkStatus } from '../common/getter';
 import { formatNumber } from '../common/util';
 
@@ -7,7 +7,7 @@ import './Work.scss';
 export default ({ setViewProject }) => {
   const [status, setStatus] = useState();
 
-  useEffect(() => {
+  useEffect(_ => {
     getWorkStatus().then(setStatus);
   }, []);
 
@@ -24,7 +24,7 @@ export default ({ setViewProject }) => {
         {status.data.map(w => {
           switch (w.status) {
             case 'RUNNING': return (
-              <>
+              <Fragment key={w.project}>
                 <h2
                   className="Project__Heading"
                   onClick={e => viewProject(e, w.project)}
@@ -36,7 +36,7 @@ export default ({ setViewProject }) => {
                   <li>ETA: <strong>{w.eta}</strong></li>
                   <li>Estimated points: <strong>{formatNumber(w.creditestimate)}</strong></li>
                 </ul>
-              </>
+              </Fragment>
             );
             default: return <span>Data is not available.</span>;
           }

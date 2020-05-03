@@ -7,7 +7,7 @@ import './Me.scss';
 export default ({ setViewProject }) => {
   const [user, setUser] = useState();
 
-  useEffect(() => {
+  useEffect(_ => {
     getUserById(17958).then(setUser);
   }, []);
 
