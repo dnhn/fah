@@ -15,11 +15,7 @@ export default _ => {
     <div className="Team Card">
       <h1 className="Card__Heading">Team</h1>
       <section className="Card__Content">
-        <ul>
-          <li>Score: <strong>{formatNumber(team.score)}</strong></li>
-          <li>Rank: <strong>{formatNumber(team.rank)}</strong></li>
-          <li>Work Unit completed: <strong>{formatNumber(team.wus)}</strong></li>
-        </ul>
+        <p>Since creation, my team has earned <strong>{formatNumber(team.score)}</strong> points over <strong>{formatNumber(team.wus)}</strong> WUs and ranks <strong>{formatNumber(team.rank)}</strong>.</p>
         <img
           className="Logo"
           src={team.logo}

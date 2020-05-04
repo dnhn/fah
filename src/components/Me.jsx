@@ -20,29 +20,22 @@ export default ({ setViewProject }) => {
     <div className="Me Card">
       <h1 className="Card__Heading">Me</h1>
       <section className="Card__Content">
-        <ul>
-          <li>Total score: <strong>{formatNumber(user.score)}</strong></li>
-          <li>Rank: <strong>{formatNumber(user.rank)}</strong></li>
-          <li>Work Unit completed: <strong>{formatNumber(user.wus)}</strong></li>
-          <li>Last Work Unit: <strong>{new Date(user.last).toDateString()}</strong></li>
-        </ul>
-        <summary>
-          Projects participated: <strong>{formatNumber(user.projects.length - 1)}</strong>
-          <details>
-            {user.projects.map((p, i) =>
-              i !== 0 ? (
-                <button
-                  className="Me__Project"
-                  type="button"
-                  key={p}
-                  onClick={e => viewProject(e, p)}
-                >
-                  {p}
-                </button>
-              ) : ''
-            )}
-          </details>
-        </summary>
+        <p>I have accumulated <strong>{formatNumber(user.score)}</strong> points over <strong>{formatNumber(user.wus)}</strong> work units (WUs) in <strong>{formatNumber(user.projects.length - 1)}</strong> projects, rank <strong>{formatNumber(user.rank)}</strong>, last WU completed on <strong>{new Date(user.last).toDateString()}</strong>.</p>
+        <details>
+          <summary>Projects participated</summary>
+          {user.projects.map((p, i) =>
+            i !== 0 ? (
+              <button
+                className="Me__Project"
+                type="button"
+                key={p}
+                onClick={e => viewProject(e, p)}
+              >
+                {p}
+              </button>
+            ) : ''
+          )}
+        </details>
       </section>
     </div>
   ) : '';
