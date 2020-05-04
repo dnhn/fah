@@ -96,11 +96,20 @@ a {
     background-color: white;
     color: black;
   }
+
+  @media screen and (max-width: 640px) {
+    padding: 15px 20px;
+  }
 }
 
 .Card__Content {
-  height: calc(100% - 88px);
+  height: calc(100% - 70px);
   overflow: auto;
   overflow-wrap: break-word;
-  padding-top: 88px;
+  padding-top: 70px;
+
+  @media screen and (max-width: 640px) {
+    height: calc(100% - 60px);
+    padding-top: 60px;
+  }
 }

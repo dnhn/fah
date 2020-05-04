@@ -3,7 +3,9 @@
     cursor: pointer;
     text-decoration: underline;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       text-decoration: none;
     }
   }

@@ -19,7 +19,9 @@
   transition-property: border-color, background-color, color;
   transition-duration: .25s;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: white;
     color: black;
   }
@@ -29,7 +31,9 @@
     background-color: white;
     color: black;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       background-color: black;
       color: white;
     }
