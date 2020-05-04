@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { getWorkStatus } from '../common/getter';
-import { formatNumber } from '../common/util';
+import { formatDate, formatNumber } from '../common/util';
 
 import './Work.scss';
 
@@ -24,7 +24,7 @@ export default ({ setViewProject }) => {
     <div className="Work Card">
       <h1 className="Card__Heading">Work</h1>
       <section className="Card__Content">
-        <p>Last updated: <strong>{new Date(status.dateTime).toDateString()}</strong></p>
+        <p>Last updated: <strong>{formatDate(status.dateTime)}</strong></p>
         {works.map(w => (
           <Fragment key={w.project}>
             <h2
