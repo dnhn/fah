@@ -6,9 +6,13 @@ import './Work.scss';
 
 export default ({ setViewProject }) => {
   const [status, setStatus] = useState();
+  const [works, setWorks] = useState([]);
 
   useEffect(_ => {
-    getWorkStatus().then(setStatus);
+    getWorkStatus().then(data => {
+      setStatus(data);
+      setWorks(data.data.filter(w => w.status === 'RUNNING'));
+    });
   }, []);
 
   const viewProject = (e, p) => {
@@ -21,26 +25,22 @@ export default ({ setViewProject }) => {
       <h1 className="Card__Heading">Work</h1>
       <section className="Card__Content">
         <p>Last updated: <strong>{new Date(status.dateTime).toDateString()}</strong></p>
-        {status.data.map(w => {
-          switch (w.status) {
-            case 'RUNNING': return (
-              <Fragment key={w.project}>
-                <h2
-                  className="Project__Heading"
-                  onClick={e => viewProject(e, w.project)}
-                >
-                  {w.project}
-                </h2>
-                <ul>
-                  <li>Progress: <strong>{w.percentdone}</strong></li>
-                  <li>ETA: <strong>{w.eta}</strong></li>
-                  <li>Estimated points: <strong>{formatNumber(w.creditestimate)}</strong></li>
-                </ul>
-              </Fragment>
-            );
-            default: return <span>Data is not available.</span>;
-          }
-        })}
+        {works.map(w => (
+          <Fragment key={w.project}>
+            <h2
+              className="Project__Heading"
+              onClick={e => viewProject(e, w.project)}
+            >
+              {w.project}
+            </h2>
+            <ul>
+              <li>Progress: <strong>{w.percentdone}</strong></li>
+              <li>ETA: <strong>{w.eta}</strong></li>
+              <li>Estimated points: <strong>{formatNumber(w.creditestimate)}</strong></li>
+            </ul>
+          </Fragment>
+        ))}
+        {!works.length && <p>Data is not available.</p>}
       </section>
     </div>
   ) : '';
