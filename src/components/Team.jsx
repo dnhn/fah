@@ -11,17 +11,19 @@ export default _ => {
     getTeam(261473).then(setTeam);
   }, []);
 
-  return team ? (
+  return (
     <div className="Team Card">
       <h1 className="Card__Heading">Team</h1>
-      <section className="Card__Content">
-        <p>Since creation, my team has earned <strong>{formatNumber(team.score)}</strong> points over <strong>{formatNumber(team.wus)}</strong> WUs and ranks <strong>{formatNumber(team.rank)}</strong>.</p>
-        <img
-          className="Logo"
-          src={team.logo}
-          alt="Team logo"
-        />
-      </section>
+      {team ? (
+        <section className="Card__Content">
+          <p>Since creation, my team has earned <strong>{formatNumber(team.score)}</strong> points over <strong>{formatNumber(team.wus)}</strong> WUs and ranks <strong>{formatNumber(team.rank)}</strong>.</p>
+          <img
+            className="Logo"
+            src={team.logo}
+            alt="Team logo"
+          />
+        </section>
+      ) : ''}
     </div>
-  ) : '';
+  );
 };
