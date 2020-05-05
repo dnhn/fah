@@ -4,7 +4,7 @@ import { formatDate, formatNumber } from '../common/util';
 
 import './Me.scss';
 
-export default ({ setViewProject }) => {
+export default ({ setProjectId }) => {
   const [user, setUser] = useState();
 
   useEffect(_ => {
@@ -13,7 +13,7 @@ export default ({ setViewProject }) => {
 
   const viewProject = (e, p) => {
     e.preventDefault();
-    setViewProject(p);
+    setProjectId(p);
   };
 
   return (

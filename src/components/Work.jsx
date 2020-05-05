@@ -4,7 +4,7 @@ import { formatDate, formatNumber } from '../common/util';
 
 import './Work.scss';
 
-export default ({ setViewProject }) => {
+export default ({ setProjectId }) => {
   const [status, setStatus] = useState();
   const [works, setWorks] = useState([]);
 
@@ -17,7 +17,7 @@ export default ({ setViewProject }) => {
 
   const viewProject = (e, p) => {
     e.preventDefault();
-    setViewProject(p);
+    setProjectId(p);
   };
 
   return (

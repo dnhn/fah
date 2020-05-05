@@ -3,16 +3,21 @@ import { getProject } from '../common/getter';
 
 import './Project.scss';
 
-export default ({ projectId }) => {
+export default ({ projectId = '', setProjectId }) => {
   const [project, setProject] = useState();
 
   useEffect(_ => {
-    getProject(projectId)
-      .then(setProject)
-      .catch(e => setProject(null))
-      .finally(
-        _ => window.scrollTo({ top: document.documentElement.scrollHeight })
-      );
+    if (projectId) {
+      getProject(projectId)
+        .then(data => {
+          setProject(data);
+          window.scrollTo({ top: document.documentElement.scrollHeight });
+        })
+        .catch(e => {
+          setProject(null);
+          setProjectId('');
+        });
+    }
   }, [projectId]);
 
   return project ? (
