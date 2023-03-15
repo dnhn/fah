@@ -4,7 +4,7 @@ import { formatNumber } from '../common/util';
 
 import './Team.scss';
 
-export default _ => {
+const Team = _ => {
   const [team, setTeam] = useState();
 
   useEffect(_ => {
@@ -27,3 +27,5 @@ export default _ => {
     </div>
   );
 };
+
+export default Team;

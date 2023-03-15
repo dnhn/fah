@@ -6,7 +6,7 @@ import Work from './components/Work';
 
 import './App.scss';
 
-export default _ => {
+const App = _ => {
   const [projectId, setProjectId] = useState();
 
   const currentHour = new Date().getHours();
@@ -24,3 +24,5 @@ export default _ => {
     </main>
   );
 };
+
+export default App;

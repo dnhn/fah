@@ -4,7 +4,7 @@ import { formatDate, formatNumber } from '../common/util';
 
 import './Work.scss';
 
-export default ({ setProjectId }) => {
+const Work = ({ setProjectId }) => {
   const [status, setStatus] = useState();
   const [works, setWorks] = useState([]);
 
@@ -47,3 +47,5 @@ export default ({ setProjectId }) => {
     </div>
   );
 };
+
+export default Work;

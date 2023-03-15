@@ -3,7 +3,7 @@ import { getProject } from '../common/getter';
 
 import './Project.scss';
 
-export default ({ projectId = '', setProjectId }) => {
+const Project = ({ projectId = '', setProjectId }) => {
   const [project, setProject] = useState();
 
   useEffect(_ => {
@@ -18,7 +18,7 @@ export default ({ projectId = '', setProjectId }) => {
           setProjectId('');
         });
     }
-  }, [projectId]);
+  }, [projectId, setProjectId]);
 
   return project ? (
     <div className="Project Card">
@@ -53,3 +53,5 @@ export default ({ projectId = '', setProjectId }) => {
     </div>
   ) : '';
 };
+
+export default Project;

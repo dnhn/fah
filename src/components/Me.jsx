@@ -4,7 +4,7 @@ import { formatDate, formatNumber } from '../common/util';
 
 import './Me.scss';
 
-export default ({ setProjectId }) => {
+const Me = ({ setProjectId }) => {
   const [user, setUser] = useState();
 
   useEffect(_ => {
@@ -42,3 +42,5 @@ export default ({ setProjectId }) => {
     </div>
   );
 };
+
+export default Me;
