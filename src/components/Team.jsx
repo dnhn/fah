@@ -21,6 +21,8 @@ const Team = _ => {
             className="Logo"
             src={team.logo}
             alt="Team logo"
+            width="256"
+            height="256"
           />
         </section>
       ) : ''}
