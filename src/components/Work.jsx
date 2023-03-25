@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+
 import { getWorkStatus } from '../common/getter';
 import { formatDate, formatNumber } from '../common/util';
 
@@ -23,7 +24,7 @@ const Work = ({ setProjectId }) => {
   return (
     <div className="Work Card">
       <h1 className="Card__Heading">Work</h1>
-      {status ? (
+      {status && (
         <section className="Card__Content">
           <p>Last updated: <strong>{formatDate(status.dateTime)}</strong></p>
           {works.map(w => (
@@ -43,7 +44,7 @@ const Work = ({ setProjectId }) => {
           ))}
           {!works.length && <p>Data is not available.</p>}
         </section>
-      ) : ''}
+      )}
     </div>
   );
 };

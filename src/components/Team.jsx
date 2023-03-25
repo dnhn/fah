@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import { getTeam } from '../common/getter';
 import { formatNumber } from '../common/util';
 
@@ -14,7 +15,7 @@ const Team = _ => {
   return (
     <div className="Team Card">
       <h1 className="Card__Heading">Team</h1>
-      {team ? (
+      {team && (
         <section className="Card__Content">
           <p>Since creation, my team has earned <strong>{formatNumber(team.score)}</strong> points over <strong>{formatNumber(team.wus)}</strong> WUs and ranks <strong>{formatNumber(team.rank)}</strong>.</p>
           <img
@@ -25,7 +26,7 @@ const Team = _ => {
             height="256"
           />
         </section>
-      ) : ''}
+      )}
     </div>
   );
 };

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+
 import { getProject } from '../common/getter';
 
 import './Project.scss';
@@ -28,14 +29,16 @@ const Project = ({ projectId = '', setProjectId }) => {
           {project.cause === 'unspecified' ?
             'Managed by' :
             (
-              <>
+              <Fragment>
                 <strong style={{ textTransform: 'capitalize' }}>
                   {project.cause}
                 </strong> project managed by
-              </>
+              </Fragment>
             )
           } <strong>{project.manager}</strong>{
-            project.institution && (<> at <strong>{project.institution}</strong></>)
+            project.institution && (
+              <Fragment> at <strong>{project.institution}</strong></Fragment>
+            )
           }. {project.url &&
             <a
               href={project.url}
