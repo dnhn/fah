@@ -4,6 +4,7 @@ import Me from './components/Me';
 import Project from './components/Project';
 import Team from './components/Team';
 import Work from './components/Work';
+import GitHub from './components/GitHub';
 
 import './App.scss';
 
@@ -18,6 +19,7 @@ const App = _ => {
       <Me setProjectId={setProjectId} />
       <Work setProjectId={setProjectId} />
       <Team />
+      <GitHub />
       <Project
         projectId={projectId}
         setProjectId={setProjectId}
