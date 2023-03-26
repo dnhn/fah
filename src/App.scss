@@ -1,8 +1,9 @@
 .App {
   display: flex;
-  align-content: baseline;
-  flex-wrap: wrap;
-  min-height: 100vh;
+  flex-direction: column;
+  grid-template: repeat(3, auto) / repeat(2, 1fr);
+  gap: 30px;
+  padding: 30px;
   transition-property: background-color, color;
   transition-duration: .5s;
 
@@ -10,14 +11,27 @@
     background-color: black;
     color: white;
   }
+
+  @media (min-width: 576px) {
+    gap: 40px;
+    padding: 40px;
+  }
+
+  @media (min-width: 768px) {
+    display: grid;
+  }
+
+  @media (min-width: 1024px) {
+    height: 100vh;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  }
 }
 
 .Card {
   position: relative;
-  width: calc((100vw / 3) - 84px);
-  height: calc(50vh - 84px);
-  margin: 20px;
   border: 2px solid black;
+  width: 100%;
+  height: 100%;
   padding: 20px;
   overflow: hidden;
   overflow-wrap: break-word;
@@ -37,18 +51,12 @@
     border-color: white;
   }
 
-  @media screen and (max-width: 1024px) {
-    width: calc(50vw - 84px);
-    height: calc(50vh - 84px);
+  @media (max-width: 1023px) {
+    aspect-ratio: 1;
   }
 
-  @media screen and (max-width: 768px) {
-    width: calc(100vw - 84px);
-    height: calc(50vw - 84px);
-  }
-
-  @media screen and (max-width: 640px) {
-    height: calc(45vh - 84px);
+  @media (min-width: 576px) and (max-width: 767px) {
+    aspect-ratio: 2;
   }
 }
 
@@ -71,19 +79,18 @@
     color: black;
   }
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: 575px) {
     padding: 15px 20px;
   }
 }
 
 .Card__Content {
-  height: calc(100% - 70px);
+  height: 100%;
   overflow: auto;
   overflow-wrap: break-word;
   padding-top: 70px;
 
-  @media screen and (max-width: 640px) {
-    height: calc(100% - 60px);
+  @media (max-width: 575px) {
     padding-top: 60px;
   }
 }

@@ -19,11 +19,11 @@ const App = _ => {
       <Me setProjectId={setProjectId} />
       <Work setProjectId={setProjectId} />
       <Team />
-      <GitHub />
       <Project
         projectId={projectId}
         setProjectId={setProjectId}
       />
+      <GitHub />
     </main>
   );
 };

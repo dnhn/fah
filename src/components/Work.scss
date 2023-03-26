@@ -1,4 +1,10 @@
 .Work {
+  grid-area: 2 / 1 / 2 / 1;
+
+  @media (min-width: 768px) {
+    grid-area: 1 / 2 / 1 / 2;
+  }
+
   .Project__Heading {
     cursor: pointer;
     text-decoration: underline;

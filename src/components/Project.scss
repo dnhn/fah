@@ -1,21 +1,60 @@
 .Project {
   &.Card {
-    width: calc(100vw * 2 / 3 - 84px);
+  }
 
-    @media screen and (max-width: 1024px) {
-      width: calc(50vw - 84px);
+  @media (min-width: 768px) and (max-width: 1023px) {
+    &.Card {
+      aspect-ratio: 2;
     }
+  }
 
-    @media screen and (max-width: 768px) {
-      width: calc(100vw - 84px);
+  @media (max-width: 1023px) {
+    grid-area: 3 / 1 / 3 / 3;
+  }
+
+  @media (max-width: 767px) {
+    order: 1;
+
+    &.Card {
+      aspect-ratio: 1.5;
     }
+  }
 
-    @media screen and (max-width: 768px) and (orientation: portrait) {
-      height: calc(50vh - 84px);
+  @media (max-width: 575px) {
+    &.Card {
+      aspect-ratio: .75;
     }
+  }
 
-    @media screen and (max-width: 640px) {
-      height: calc(100vh - 84px);
+  @media (min-width: 1024px) {
+    grid-area: 2 / 1 / 2 / 3;
+  }
+}
+
+.Project__Intro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 20%;
+    max-height: 128px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  > p {
+    flex: 1;
+  }
+
+  @media (min-width: 576px) {
+    gap: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    img {
+      width: 25%;
+      max-height: 192px;
     }
   }
 }

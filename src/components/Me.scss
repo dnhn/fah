@@ -1,7 +1,4 @@
 .Me {
-  details {
-    margin-top: 4px;
-  }
 }
 
 .Me__Project {
@@ -39,12 +36,12 @@
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: 767px) {
     min-width: 10vw;
     padding: 10px;
   }
 
-  @media screen and (max-width: 640px) {
-    min-width: 20vw;
+  @media (max-width: 575px) {
+    min-width: 15vw;
   }
 }

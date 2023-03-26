@@ -1,4 +1,10 @@
 .GitHub {
+  grid-area: 2 / 2 / 2 / 2;
+
   &.Card {
+  }
+
+  @media (min-width: 1024px) {
+    grid-area: 2 / 3 / 2 / 3;
   }
 }
