@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Me from './components/Me';
 import Project from './components/Project';
@@ -10,12 +10,22 @@ import './App.scss';
 
 const App = _ => {
   const [projectId, setProjectId] = useState();
+  const [theme, setTheme] = useState(false);
 
-  const currentHour = new Date().getHours();
-  const darkTheme = currentHour >= 18 || currentHour < 6 ? 'Dark' : '';
+  useEffect(() => {
+    const currentHour = new Date().getHours();
+    setTheme(currentHour >= 18 || currentHour < 6);
+  }, []);
 
   return (
-    <main className={`App ${darkTheme}`}>
+    <main className={`App ${theme && 'Dark'}`}>
+      <button
+        className="App__Theme"
+        type="button"
+        onClick={() => setTheme(!theme)}
+        title="Toggle theme"
+        aria-label="Toggle theme"
+      >💡</button>
       <Me setProjectId={setProjectId} />
       <Work setProjectId={setProjectId} />
       <Team />
