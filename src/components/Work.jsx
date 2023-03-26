@@ -29,11 +29,13 @@ const Work = ({ setProjectId }) => {
           <p>Last updated: <strong>{formatDate(status.dateTime)}</strong></p>
           {works.map(w => (
             <Fragment key={w.project}>
-              <h2
-                className="Project__Heading"
-                onClick={e => viewProject(e, w.project)}
-              >
-                {w.project}
+              <h2 className="Project__Heading">
+                <button
+                  type="button"
+                  onClick={e => viewProject(e, w.project)}
+                >
+                  {w.project}
+                </button>
               </h2>
               <ul>
                 <li>Progress: <strong>{w.percentdone}</strong></li>

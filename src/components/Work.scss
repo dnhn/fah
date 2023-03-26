@@ -1,18 +1,27 @@
 .Work {
   grid-area: 2 / 1 / 2 / 1;
 
-  @media (min-width: 768px) {
-    grid-area: 1 / 2 / 1 / 2;
+  .Project__Heading {
+    button {
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+      background-color: transparent;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+      }
+    }
   }
 
-  .Project__Heading {
-    cursor: pointer;
-    text-decoration: underline;
-
-    &:hover,
-    &:focus,
-    &:active {
-      text-decoration: none;
-    }
+  @media (min-width: 768px) {
+    grid-area: 1 / 2 / 1 / 2;
   }
 }
