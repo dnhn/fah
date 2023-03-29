@@ -3,8 +3,12 @@
 # Folding@home profile
 My donor profile, my own team and latest work status.
 
-## Large screen
-![Large screen](screenshot.png)
+## Desktop
+![Desktop](screenshot.png)
+![Dark mode](screenshot-dark.png)
 
-## Medium screen, dark theme
-![Medium screen](screenshot-md.png)
+## Medium screen
+<img src="screenshot-md.png" height="1000" alt="Medium screen">
+
+## Small screen
+<img src="screenshot-sm.png" height="1500" alt="Small screen">
