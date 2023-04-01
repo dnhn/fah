@@ -17,7 +17,14 @@ const Team = _ => {
       <h1 className="Card__Heading">Team</h1>
       {team && (
         <section className="Card__Content">
-          <p>Since creation, my team has earned <strong>{formatNumber(team.score)}</strong> points over <strong>{formatNumber(team.wus)}</strong> WUs and ranks <strong>{formatNumber(team.rank)}</strong>.</p>
+          <p>
+            Since creation, my team has earned
+            {' '}<strong>{formatNumber(team.score)}</strong>{' '}
+            points over
+            {' '}<strong>{formatNumber(team.wus)}</strong>{' '}
+            WUs and ranks
+            {' '}<strong>{formatNumber(team.rank)}</strong>.
+          </p>
           <img
             className="Logo"
             src={team.logo}

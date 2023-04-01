@@ -27,7 +27,10 @@ const Project = ({ projectId = '', setProjectId }) => {
       <section className="Card__Content">
         <div className="Project__Intro">
           {project.thumb &&
-            <img src={`data:image;base64,${project.thumb}`} alt="Project thumb" />
+            <img
+              src={`data:image;base64,${project.thumb}`}
+              alt="Project thumb"
+            />
           }
           <p>
             {project.cause === 'unspecified' ?
@@ -41,20 +44,30 @@ const Project = ({ projectId = '', setProjectId }) => {
               )
             } <strong>{project.manager}</strong>{
               project.institution && (
-                <Fragment> at <strong>{project.institution}</strong></Fragment>
+                <Fragment>
+                  {' '}at <strong>{project.institution}</strong>
+                </Fragment>
               )
             }. {project.url &&
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {project.url}
-              </a>
+              <small>
+                <em>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {project.url}
+                  </a>
+                </em>
+              </small>
             }
           </p>
           {project.mthumb &&
-            <img src={`data:image;base64,${project.mthumb}`} alt={project.manager} title={project.manager} />
+            <img
+              src={`data:image;base64,${project.mthumb}`}
+              alt={project.manager}
+              title={project.manager}
+            />
           }
         </div>
         <div dangerouslySetInnerHTML={{ __html: project.description }} />

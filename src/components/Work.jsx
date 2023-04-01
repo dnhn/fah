@@ -38,9 +38,18 @@ const Work = ({ setProjectId }) => {
                 </button>
               </h2>
               <ul>
-                <li>Progress: <strong>{w.percentdone}</strong></li>
-                <li>ETA: <strong>{w.eta}</strong></li>
-                <li>Estimated points: <strong>{formatNumber(w.creditestimate)}</strong></li>
+                <li>
+                  Progress:
+                  {' '}<strong>{w.percentdone}</strong>
+                </li>
+                <li>
+                  ETA:
+                  {' '}<strong>{w.eta}</strong>
+                </li>
+                <li>
+                  Estimated points:
+                  {' '}<strong>{formatNumber(w.creditestimate)}</strong>
+                </li>
               </ul>
             </Fragment>
           ))}
