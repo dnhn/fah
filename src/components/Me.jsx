@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getUserById } from '../common/getter';
 import { formatDate, formatNumber } from '../common/util';
 
-import './Me.scss';
+import './Me.css';
 
 const Me = ({ setProjectId }) => {
   const [user, setUser] = useState();

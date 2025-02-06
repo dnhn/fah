@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import { getWorkStatus } from '../common/getter';
 import { formatDate, formatNumber } from '../common/util';
 
-import './Work.scss';
+import './Work.css';
 
 const Work = ({ setProjectId }) => {
   const [status, setStatus] = useState();

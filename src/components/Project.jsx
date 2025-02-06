@@ -1,8 +1,8 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import { getProject } from '../common/getter';
 
-import './Project.scss';
+import './Project.css';
 
 const Project = ({ projectId = '', setProjectId }) => {
   const [project, setProject] = useState();

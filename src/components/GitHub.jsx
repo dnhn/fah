@@ -1,6 +1,4 @@
-import React from 'react';
-
-import './GitHub.scss';
+import './GitHub.css';
 
 const GitHub = _ => {
   return (
