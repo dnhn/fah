@@ -8,8 +8,8 @@ import GitHub from './components/GitHub';
 
 import './App.css';
 
-const App = _ => {
-  const [projectId, setProjectId] = useState();
+export default function App() {
+  const [projectId, setProjectId] = useState<number>();
   const [theme, setTheme] = useState(false);
 
   useEffect(() => {
@@ -36,6 +36,4 @@ const App = _ => {
       <GitHub />
     </main>
   );
-};
-
-export default App;
+}

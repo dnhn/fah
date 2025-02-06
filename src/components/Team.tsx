@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 
 import { getTeam } from '../common/getter';
+import { Team as ITeam } from '../common/interfaces';
 import { formatNumber } from '../common/util';
 
 import './Team.css';
 
-const Team = _ => {
-  const [team, setTeam] = useState();
+export default function Team() {
+  const [team, setTeam] = useState<ITeam>();
 
-  useEffect(_ => {
+  useEffect(() => {
     getTeam(261473).then(setTeam);
   }, []);
 
@@ -36,6 +37,4 @@ const Team = _ => {
       )}
     </div>
   );
-};
-
-export default Team;
+}

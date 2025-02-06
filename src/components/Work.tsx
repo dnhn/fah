@@ -1,38 +1,34 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react';
 
 import { getWorkStatus } from '../common/getter';
+import { Work as IWork } from '../common/interfaces';
 import { formatDate, formatNumber } from '../common/util';
 
 import './Work.css';
 
-const Work = ({ setProjectId }) => {
-  const [status, setStatus] = useState();
-  const [works, setWorks] = useState([]);
+export default function Work({ setProjectId }: { setProjectId: Dispatch<SetStateAction<number | undefined>> }) {
+  const [status, setStatus] = useState<IWork>();
+  const [works, setWorks] = useState<IWork['data']>([]);
 
-  useEffect(_ => {
+  useEffect(() => {
     getWorkStatus().then(data => {
       setStatus(data);
       setWorks(data.data.filter(w => w.status === 'RUNNING'));
     });
   }, []);
 
-  const viewProject = (e, p) => {
-    e.preventDefault();
-    setProjectId(p);
-  };
-
   return (
     <div className="Work Card">
       <h1 className="Card__Heading">Work</h1>
       {status && (
         <section className="Card__Content">
-          <p>Last updated: <strong>{formatDate(status.dateTime)}</strong></p>
+          <p>Last updated: <strong>{formatDate(status.dateTime.toString())}</strong></p>
           {works.map(w => (
             <Fragment key={w.project}>
               <h2 className="Project__Heading">
                 <button
                   type="button"
-                  onClick={e => viewProject(e, w.project)}
+                  onClick={() => setProjectId(w.project)}
                 >
                   {w.project}
                 </button>
@@ -58,6 +54,4 @@ const Work = ({ setProjectId }) => {
       )}
     </div>
   );
-};
-
-export default Work;
+}

@@ -1,6 +1,6 @@
 import './GitHub.css';
 
-const GitHub = _ => {
+export default function GitHub() {
   return (
     <div className="GitHub Card">
       <h1 className="Card__Heading">GitHub</h1>
@@ -38,6 +38,4 @@ const GitHub = _ => {
       </section>
     </div>
   );
-};
-
-export default GitHub;
+}

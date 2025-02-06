@@ -1,27 +1,30 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react';
 
 import { getProject } from '../common/getter';
+import { Project as IProject } from '../common/interfaces';
 
 import './Project.css';
 
-const Project = ({ projectId = '', setProjectId }) => {
-  const [project, setProject] = useState();
+export default function Project({ projectId, setProjectId }: Props) {
+  const [project, setProject] = useState<IProject>();
 
-  useEffect(_ => {
+  useEffect(() => {
     if (projectId) {
       getProject(projectId)
         .then(data => {
           setProject(data);
           window.scrollTo({ top: document.documentElement.scrollHeight });
         })
-        .catch(e => {
-          setProject(null);
-          setProjectId('');
+        .catch(() => {
+          setProject(undefined);
+          setProjectId(undefined);
         });
     }
   }, [projectId, setProjectId]);
 
-  return project ? (
+  if (!project) return null;
+
+  return (
     <div className="Project Card">
       <h1 className="Card__Heading">Project {projectId}</h1>
       <section className="Card__Content">
@@ -75,7 +78,10 @@ const Project = ({ projectId = '', setProjectId }) => {
         <div dangerouslySetInnerHTML={{ __html: project.mdescription }} />
       </section>
     </div>
-  ) : '';
-};
+  );
+}
 
-export default Project;
+interface Props {
+  projectId?: number;
+  setProjectId: Dispatch<SetStateAction<number | undefined>>;
+}

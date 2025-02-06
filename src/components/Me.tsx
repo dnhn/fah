@@ -1,21 +1,17 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import { getUserById } from '../common/getter';
+import { User } from '../common/interfaces';
 import { formatDate, formatNumber } from '../common/util';
 
 import './Me.css';
 
-const Me = ({ setProjectId }) => {
-  const [user, setUser] = useState();
+export default function Me({ setProjectId }: { setProjectId: Dispatch<SetStateAction<number | undefined>> }) {
+  const [user, setUser] = useState<User>();
 
-  useEffect(_ => {
+  useEffect(() => {
     getUserById(17958).then(setUser);
   }, []);
-
-  const viewProject = (e, p) => {
-    e.preventDefault();
-    setProjectId(p);
-  };
 
   return (
     <div className="Me Card">
@@ -27,22 +23,20 @@ const Me = ({ setProjectId }) => {
             {' '}<strong>{formatNumber(user.score)}</strong>{' '}
             points over
             {' '}<strong>{formatNumber(user.wus)}</strong>{' '}
-            work units (WUs) in
-            {' '}<strong>{formatNumber(user.projects.length - 1)}</strong>{' '}
-            projects, rank
+            work units (WUs), rank
             {' '}<strong>{formatNumber(user.rank)}</strong>,
             last WU completed on
             {' '}<strong>{formatDate(user.last.replace(/-/g, '/'))}</strong>.
           </p>
           <details>
-            <summary>Projects participated</summary>
+            <summary>Projects participated {formatNumber(user.projects.length - 1)}</summary>
             {user.projects.map((p, i) =>
               i !== 0 ? (
                 <button
                   className="Me__Project"
                   type="button"
                   key={p}
-                  onClick={e => viewProject(e, p)}
+                  onClick={() => setProjectId(p)}
                 >
                   {p}
                 </button>
@@ -53,6 +47,4 @@ const Me = ({ setProjectId }) => {
       )}
     </div>
   );
-};
-
-export default Me;
+}
