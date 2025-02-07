@@ -3,6 +3,7 @@ import axios from 'axios';
 const fetcher = axios.create({
   baseURL: 'https://api.foldingathome.org',
   headers: { 'Content-Type': 'application/json' },
+  withCredentials: true,
 });
 
 const internalFetcher = axios.create({
