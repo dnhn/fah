@@ -1,28 +1,17 @@
-import { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
-import { getProject } from '../common/getter';
-import { Project as IProject } from '../common/interfaces';
+import { getProject } from '../api/requests';
 
 import './Project.css';
 
-export default function Project({ projectId, setProjectId }: Props) {
-  const [project, setProject] = useState<IProject>();
+export default function Project({ projectId }: { projectId?: number }) {
+  const { data: project } = useQuery({
+    queryKey: ['project', projectId],
+    queryFn: () => getProject(projectId ?? 0),
+    enabled: !!projectId,
+  })
 
-  useEffect(() => {
-    if (projectId) {
-      getProject(projectId)
-        .then(data => {
-          setProject(data);
-          window.scrollTo({ top: document.documentElement.scrollHeight });
-        })
-        .catch(() => {
-          setProject(undefined);
-          setProjectId(undefined);
-        });
-    }
-  }, [projectId, setProjectId]);
-
-  if (!project) return null;
+  if (!projectId || !project) return null;
 
   return (
     <div className="Project Card">
@@ -39,17 +28,15 @@ export default function Project({ projectId, setProjectId }: Props) {
             {project.cause === 'unspecified' ?
               'Managed by' :
               (
-                <Fragment>
+                <>
                   <strong style={{ textTransform: 'capitalize' }}>
                     {project.cause}
                   </strong> project managed by
-                </Fragment>
+                </>
               )
             } <strong>{project.manager}</strong>{
               project.institution && (
-                <Fragment>
-                  {' '}at <strong>{project.institution}</strong>
-                </Fragment>
+                <>{' '}at <strong>{project.institution}</strong></>
               )
             }. {project.url &&
               <small>
@@ -79,9 +66,4 @@ export default function Project({ projectId, setProjectId }: Props) {
       </section>
     </div>
   );
-}
-
-interface Props {
-  projectId?: number;
-  setProjectId: Dispatch<SetStateAction<number | undefined>>;
 }

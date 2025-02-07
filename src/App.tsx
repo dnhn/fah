@@ -29,10 +29,7 @@ export default function App() {
       <Me setProjectId={setProjectId} />
       <Work setProjectId={setProjectId} />
       <Team />
-      <Project
-        projectId={projectId}
-        setProjectId={setProjectId}
-      />
+      <Project projectId={projectId} />
       <GitHub />
     </main>
   );

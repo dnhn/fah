@@ -1,50 +1,56 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { Dispatch, SetStateAction } from 'react';
 
-import { getUserById } from '../common/getter';
-import { User } from '../common/interfaces';
+import { getProjects, getUserById } from '../api/requests';
 import { formatDate, formatNumber } from '../common/util';
 
 import './Me.css';
 
-export default function Me({ setProjectId }: { setProjectId: Dispatch<SetStateAction<number | undefined>> }) {
-  const [user, setUser] = useState<User>();
+const userId = 17958;
 
-  useEffect(() => {
-    getUserById(17958).then(setUser);
-  }, []);
+export default function Me({ setProjectId }: { setProjectId: Dispatch<SetStateAction<number | undefined>> }) {
+  const { data: user } = useQuery({
+    queryKey: ['user', userId],
+    queryFn: () => getUserById(userId),
+  });
+  const { data: projects } = useQuery({
+    queryKey: ['projects', user?.name],
+    queryFn: () => getProjects(user?.name ?? ''),
+    enabled: !!user,
+  });
 
   return (
     <div className="Me Card">
       <h1 className="Card__Heading">Me</h1>
-      {user && (
-        <section className="Card__Content">
+      <section className="Card__Content">
+        {user && (
           <p>
-            I have accumulated
-            {' '}<strong>{formatNumber(user.score)}</strong>{' '}
-            points over
-            {' '}<strong>{formatNumber(user.wus)}</strong>{' '}
-            work units (WUs), rank
-            {' '}<strong>{formatNumber(user.rank)}</strong>,
-            last WU completed on
-            {' '}<strong>{formatDate(user.last.replace(/-/g, '/'))}</strong>.
+            I have accumulated{' '}
+            <strong>{formatNumber(user.score)}</strong>
+            {' '}points over{' '}
+            <strong>{formatNumber(user.wus)}</strong>
+            {' '}work units (WUs), rank{' '}
+            <strong>{formatNumber(user.rank)}</strong>,
+            last WU completed on{' '}
+            <strong>{formatDate(user.last.replace(/-/g, '/'))}</strong>.
           </p>
+        )}
+        {projects && projects.length > 0 && (
           <details>
-            <summary>Projects participated {formatNumber(user.projects.length - 1)}</summary>
-            {user.projects.map((p, i) =>
-              i !== 0 ? (
-                <button
-                  className="Me__Project"
-                  type="button"
-                  key={p}
-                  onClick={() => setProjectId(p)}
-                >
-                  {p}
-                </button>
-              ) : ''
-            )}
+            <summary>Projects participated ({formatNumber(projects.length)})</summary>
+            {projects.slice(1).map((p) => (
+              <button
+                key={p}
+                type="button"
+                onClick={() => setProjectId(p)}
+                className="Me__Project"
+              >
+                {p}
+              </button>
+            ))}
           </details>
-        </section>
-      )}
+        )}
+      </section>
     </div>
   );
 }

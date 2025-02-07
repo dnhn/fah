@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
-import { getTeam } from '../common/getter';
-import { Team as ITeam } from '../common/interfaces';
+import { getTeam } from '../api/requests';
 import { formatNumber } from '../common/util';
 
 import './Team.css';
 
-export default function Team() {
-  const [team, setTeam] = useState<ITeam>();
+const teamId = 261473;
 
-  useEffect(() => {
-    getTeam(261473).then(setTeam);
-  }, []);
+export default function Team() {
+  const { data: team } = useQuery({
+    queryKey: ['team', teamId],
+    queryFn: () => getTeam(teamId),
+  });
 
   return (
     <div className="Team Card">
@@ -19,12 +19,12 @@ export default function Team() {
       {team && (
         <section className="Card__Content">
           <p>
-            Since creation, my team has earned
-            {' '}<strong>{formatNumber(team.score)}</strong>{' '}
-            points over
-            {' '}<strong>{formatNumber(team.wus)}</strong>{' '}
-            WUs and ranks
-            {' '}<strong>{formatNumber(team.rank)}</strong>.
+            My team has earned{' '}
+            <strong>{formatNumber(team.score)}</strong>
+            {' '}points over{' '}
+            <strong>{formatNumber(team.wus)}</strong>
+            {' '}WUs and ranks{' '}
+            <strong>{formatNumber(team.rank)}</strong>.
           </p>
           <img
             className="Logo"
