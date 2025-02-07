@@ -10,7 +10,7 @@ const dynamo = new DynamoDBClient({
 
 const command = new GetItemCommand({
   TableName: Netlify.env.get('FAH_AWS_DYNAMO_TABLE'),
-  Key: { id: 0 },
+  Key: { id: { S: '0' } },
 });
 
 export default async () => {
