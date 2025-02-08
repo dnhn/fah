@@ -7,7 +7,7 @@ import { formatDate, formatNumber } from '../common/util';
 import './Work.css';
 
 export default function Work({ setProjectId }: { setProjectId: Dispatch<SetStateAction<number | undefined>> }) {
-  const { data: work } = useQuery({
+  const { data: work, isFetching } = useQuery({
     queryKey: ['work'],
     queryFn: getWork,
   });
@@ -46,7 +46,7 @@ export default function Work({ setProjectId }: { setProjectId: Dispatch<SetState
               </Fragment>
             ))}
           </>
-        ) : <p>Data is not available.</p>}
+        ) : !isFetching && <p>Data is not available.</p>}
       </section>
     </div>
   );
