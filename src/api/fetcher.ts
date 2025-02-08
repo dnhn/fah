@@ -7,6 +7,7 @@ const fetcher = axios.create({
 });
 
 const internalFetcher = axios.create({
+  baseURL: '/api',
   headers: { 'Content-Type': 'application/json' },
 });
 

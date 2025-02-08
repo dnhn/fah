@@ -21,4 +21,4 @@ export const getProjects = async (name: string): Promise<number[]> => await requ
 
 export const getTeam = async (id: number): Promise<Team> => await requestor('/team/' + id);
 
-export const getWork = async (): Promise<Work> => await internalRequestor('/.netlify/functions/getWorkStatus');
+export const getWork = async (): Promise<Work> => await internalRequestor('/work');

@@ -16,9 +16,13 @@ const command = new GetItemCommand({
 export default async () => {
   try {
     const data = await dynamo.send(command)
-    return new Response(data.Item);
+    return Response.json(data.Item);
   } catch (error) {
     console.error(error);
     return new Response(error);
   }
+};
+
+export const config = {
+  path: '/api/work'
 };
