@@ -18,7 +18,7 @@ export default function Work({ setProjectId }: { setProjectId: Dispatch<SetState
       <section className="Card__Content">
         {work ? (
           <>
-            <p>Last updated: <strong>{formatDate(work.dateTime.toString())}</strong></p>
+            <p>Last updated: <strong>{formatDate(work.dateTime)}</strong></p>
             {work.data.filter(w => w.status === 'RUNNING').map(w => (
               <Fragment key={w.project}>
                 <h2 className="Project__Heading">
