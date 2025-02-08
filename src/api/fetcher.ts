@@ -17,18 +17,20 @@ fetcher.interceptors.response.use(
   },
   function (error) {
     console.error(error.message);
+
     return Promise.reject(error.message);
   },
 );
 
 lambdaFetcher.interceptors.response.use(
   function (response) {
-    if (typeof response.data === 'string') return Promise.reject();
+    if (typeof response.data === 'string' || response.data.hasOwnProperty('error')) return Promise.reject();
 
     return response.data;
   },
   function (error) {
     console.error(error.message);
+
     return Promise.reject(error.message);
   },
 );

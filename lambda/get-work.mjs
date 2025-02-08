@@ -1,7 +1,7 @@
 import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
 import { unmarshall } from '@aws-sdk/util-dynamodb';
 
-import { headers } from '../src/common/lambda-config.mjs';
+import { headers } from '../src/api/lambda-config.mjs';
 
 const dynamo = new DynamoDBClient({
   credentials: {
