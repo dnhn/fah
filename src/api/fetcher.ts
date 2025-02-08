@@ -6,7 +6,7 @@ const fetcher = axios.create({
   withCredentials: true,
 });
 
-const internalFetcher = axios.create({
+const lambdaFetcher = axios.create({
   baseURL: '/api',
   headers: { 'Content-Type': 'application/json' },
 });
@@ -21,7 +21,7 @@ fetcher.interceptors.response.use(
   },
 );
 
-internalFetcher.interceptors.response.use(
+lambdaFetcher.interceptors.response.use(
   function (response) {
     if (typeof response.data === 'string') return Promise.reject();
 
@@ -33,4 +33,4 @@ internalFetcher.interceptors.response.use(
   },
 );
 
-export { fetcher, internalFetcher };
+export { fetcher, lambdaFetcher };

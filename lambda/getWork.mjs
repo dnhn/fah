@@ -1,6 +1,8 @@
 import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
 import { unmarshall } from '@aws-sdk/util-dynamodb';
 
+import { headers } from '../src/common/lambda-config.mjs';
+
 const dynamo = new DynamoDBClient({
   credentials: {
     accessKeyId: Netlify.env.get('FAH_AWS_ACCESS_KEY'),
@@ -18,7 +20,7 @@ export default async () => {
   try {
     const data = await dynamo.send(command)
 
-    return Response.json(unmarshall(data.Item));
+    return new Response(JSON.stringify(unmarshall(data.Item)), { headers });
   } catch (error) {
     console.error(error);
 
