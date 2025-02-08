@@ -1,4 +1,5 @@
 import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
+import { unmarshall } from '@aws-sdk/util-dynamodb';
 
 const dynamo = new DynamoDBClient({
   credentials: {
@@ -16,9 +17,11 @@ const command = new GetItemCommand({
 export default async () => {
   try {
     const data = await dynamo.send(command)
-    return Response.json(data.Item);
+
+    return Response.json(unmarshall(data.Item));
   } catch (error) {
     console.error(error);
+
     return new Response(error);
   }
 };
