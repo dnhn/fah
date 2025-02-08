@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import Me from './components/Me';
 import Project from './components/Project';
@@ -8,14 +8,11 @@ import GitHub from './components/GitHub';
 
 import './App.css';
 
+const currentHour = new Date().getHours();
+
 export default function App() {
   const [projectId, setProjectId] = useState<number>();
-  const [theme, setTheme] = useState(false);
-
-  useEffect(() => {
-    const currentHour = new Date().getHours();
-    setTheme(currentHour >= 18 || currentHour < 6);
-  }, []);
+  const [theme, setTheme] = useState(currentHour >= 18 || currentHour < 6);
 
   return (
     <main className={`App ${theme && 'Dark'}`}>
