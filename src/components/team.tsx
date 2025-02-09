@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getTeam } from '../api/requests';
+import Card from './card';
 import { formatNumber } from '../common/util';
 
 import './team.css';
@@ -14,10 +15,9 @@ export default function Team() {
   });
 
   return (
-    <div className="Team Card">
-      <h1 className="Card__Heading">Team</h1>
+    <Card title="Team" className="Team">
       {team && (
-        <section className="Card__Content">
+        <>
           <p>
             My team has earned{' '}
             <strong>{formatNumber(team.score)}</strong>
@@ -33,8 +33,8 @@ export default function Team() {
             width="256"
             height="256"
           />
-        </section>
+        </>
       )}
-    </div>
+    </Card>
   );
 }

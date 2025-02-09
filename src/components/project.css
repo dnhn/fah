@@ -1,7 +1,4 @@
 .Project {
-  &.Card {
-  }
-
   @media (min-width: 768px) and (max-width: 1023px) {
     &.Card {
       aspect-ratio: 2;
