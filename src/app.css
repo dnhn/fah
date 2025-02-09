@@ -88,10 +88,10 @@
   height: 100%;
   overflow: auto;
   overflow-wrap: break-word;
-  padding-top: 70px;
+  padding-top: 60px;
 
   @media (max-width: 575px) {
-    padding-top: 60px;
+    padding-top: 50px;
   }
 }
 
