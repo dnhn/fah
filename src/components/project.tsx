@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getProject } from '../api/requests';
 
-import './Project.css';
+import './project.css';
 
 export default function Project({ projectId }: { projectId?: number }) {
   const { data: project } = useQuery({

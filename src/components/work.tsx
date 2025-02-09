@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { Dispatch, Fragment, SetStateAction  } from 'react';
+import { Dispatch, Fragment, SetStateAction } from 'react';
 
 import { getWork } from '../api/requests';
 import { formatDate, formatNumber } from '../common/util';
 
-import './Work.css';
+import './work.css';
 
 export default function Work({ setProjectId }: { setProjectId: Dispatch<SetStateAction<number | undefined>> }) {
   const { data: work, isFetching } = useQuery({

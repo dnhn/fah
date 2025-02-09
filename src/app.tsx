@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import Me from './components/Me';
-import Project from './components/Project';
-import Team from './components/Team';
-import Work from './components/Work';
-import GitHub from './components/GitHub';
+import Me from './components/me';
+import Project from './components/project';
+import Team from './components/team';
+import Work from './components/work';
+import GitHub from './components/github';
 
-import './App.css';
+import './app.css';
 
 const currentHour = new Date().getHours();
 

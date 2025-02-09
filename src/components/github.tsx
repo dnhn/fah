@@ -1,4 +1,4 @@
-import './GitHub.css';
+import './github.css';
 
 export default function GitHub() {
   return (

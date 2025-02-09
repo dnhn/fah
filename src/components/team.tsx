@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getTeam } from '../api/requests';
 import { formatNumber } from '../common/util';
 
-import './Team.css';
+import './team.css';
 
 const teamId = 261473;
 

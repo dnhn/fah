@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { getProjects, getUserById } from '../api/requests';
 import { formatDate, formatNumber } from '../common/util';
 
-import './Me.css';
+import './me.css';
 
 const userId = 17958;
 
@@ -30,8 +30,8 @@ export default function Me({ setProjectId }: { setProjectId: Dispatch<SetStateAc
             {' '}points over{' '}
             <strong>{formatNumber(user.wus)}</strong>
             {' '}work units (WUs), rank{' '}
-            <strong>{formatNumber(user.rank)}</strong>,
-            last WU completed on{' '}
+            <strong>{formatNumber(user.rank)}</strong>
+            , last WU completed on{' '}
             <strong>{formatDate(user.last.replace(/-/g, '/'))}</strong>.
           </p>
         )}
@@ -44,9 +44,7 @@ export default function Me({ setProjectId }: { setProjectId: Dispatch<SetStateAc
                 type="button"
                 onClick={() => setProjectId(p)}
                 className="Me__Project"
-              >
-                {p}
-              </button>
+              >{p}</button>
             ))}
           </details>
         )}
