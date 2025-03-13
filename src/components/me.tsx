@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from 'react';
 
 import { getProjects, getUserById } from '../api/requests';
 import Card from './card';
-import { formatDate, formatNumber } from '../common/util';
+import { formatNumber } from '../common/util';
 
 import './me.css';
 
@@ -29,9 +29,7 @@ export default function Me({ setProjectId }: { setProjectId: Dispatch<SetStateAc
           {' '}points over{' '}
           <strong>{formatNumber(user.wus)}</strong>
           {' '}work units (WUs), rank{' '}
-          <strong>{formatNumber(user.rank)}</strong>
-          , last WU completed on{' '}
-          <strong>{formatDate(user.last.replace(/-/g, '/'))}</strong>.
+          <strong>{formatNumber(user.rank)}</strong>.
         </p>
       )}
       {projects && projects.length > 0 && (

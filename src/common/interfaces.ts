@@ -2,7 +2,6 @@ export interface User {
   active_50: number;
   active_7: number;
   id: number;
-  last: string;
   name: string;
   rank: number;
   score: number;
