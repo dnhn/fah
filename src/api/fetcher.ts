@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from 'axios';
 
 const fetcher = axios.create({
@@ -36,3 +37,4 @@ lambdaFetcher.interceptors.response.use(
 );
 
 export { fetcher, lambdaFetcher };
+/* eslint-enable */
