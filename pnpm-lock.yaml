@@ -44,7 +44,7 @@ importers:
         version: 19.0.4(@types/react@19.0.12)
       '@vitejs/plugin-react-swc':
         specifier: ^3.8.1
-        version: 3.8.1(vite@6.4.3)
+        version: 3.8.1(vite@6.4.4)
       eslint:
         specifier: ^9.23.0
         version: 9.23.0(supports-color@7.2.0)
@@ -67,8 +67,8 @@ importers:
         specifier: ^8.28.0
         version: 8.28.0(eslint@9.23.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.8.2)
       vite:
-        specifier: ^6.4.3
-        version: 6.4.3
+        specifier: ^6.4.4
+        version: 6.4.4
 
 packages:
 
@@ -1855,8 +1855,8 @@ packages:
     deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
-  vite@6.4.3:
-    resolution: {integrity: sha512-NTKlcQjlAK7MlQoyb6LgaqHc8sso/pVyUJYWMws3jg21uTJw/LddqIFPcPqP6PzpgbIcZyKI85sFE4HBrQDA8A==}
+  vite@6.4.4:
+    resolution: {integrity: sha512-xGjU/SyjeNyb0E4KxXBvYz/1C+3JXuujvf2hXNOtnlcE+58o5ajd9N2/n2VhkiJvpCP2qQasnUpx5PXNeI+p1Q==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -2989,10 +2989,10 @@ snapshots:
       '@typescript-eslint/types': 8.28.0
       eslint-visitor-keys: 4.2.0
 
-  '@vitejs/plugin-react-swc@3.8.1(vite@6.4.3)':
+  '@vitejs/plugin-react-swc@3.8.1(vite@6.4.4)':
     dependencies:
       '@swc/core': 1.11.13
-      vite: 6.4.3
+      vite: 6.4.4
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -4183,7 +4183,7 @@ snapshots:
 
   uuid@9.0.1: {}
 
-  vite@6.4.3:
+  vite@6.4.4:
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.4)
